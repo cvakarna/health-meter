@@ -58,7 +58,7 @@ export class InfoDisplayComponent implements OnInit, OnDestroy {
           this.messageInfo.time = localDate.toLocaleString();
           console.log(this.messageInfo);
           if (!this.isTimerStarted) {
-            //this.remainderToFetch(localDate);
+            this.remainderToFetch(localDate);
           }
         }
       }
@@ -72,17 +72,21 @@ export class InfoDisplayComponent implements OnInit, OnDestroy {
         if (responseArray.length != 0) {
           responseArray = this.sortList(responseArray);
           this.countriesList = this.filteredCountriesList = responseArray;
-          this.dataSource = new MatTableDataSource(responseArray);
-          this.cdr.detectChanges();
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.dataSource.sortingDataAccessor = this.previewMatchSortingFn;
+          this.initializeDataTable(responseArray);
         }
       }
     })
   }
 
+  private initializeDataTable(responseArray: Array<InfoMessage>) {
 
+    this.dataSource = new MatTableDataSource(responseArray);
+    this.cdr.detectChanges();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.dataSource.sortingDataAccessor = this.previewMatchSortingFn;
+
+  }
   previewMatchSortingFn(item: InfoMessage, header: string): string | number {
     switch (header) {
       case "total":
@@ -99,12 +103,7 @@ export class InfoDisplayComponent implements OnInit, OnDestroy {
         return item.cases.active;
     }
   }
-  private initializeTable(countriesData: Array<InfoMessage>) {
 
-    // this.tableResource = new DataTableResource(countriesData);
-    // this.tableResource.query({ offset: 0 }).then(items => this.items = items);
-    // this.tableResource.count().then(itemCount => this.itemCount = itemCount);
-  }
   reloadItems(params) {
 
     // if (!this.tableResource) return;
@@ -137,7 +136,7 @@ export class InfoDisplayComponent implements OnInit, OnDestroy {
 
   callTogetData() {
     //get country by data
-    //this.getDataFromServer();
+    this.getDataFromServer();
 
   }
   filterData(query) {

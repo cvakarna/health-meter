@@ -8,6 +8,14 @@
                     <h5 class="card-title" class="text-center">Total : {{messageInfo.cases.total}}
                     </h5>
                     <hr>
+                    <h5 *ngIf="!messageInfo.cases.new" class="card-title" class="text-center">New :
+                        0
+
+                    </h5>
+                    <h5 *ngIf="messageInfo.cases.new" class="card-title" class="text-center">New :
+                        {{messageInfo.cases.new|number}}
+                    </h5>
+                    <hr>
                     <h5 class="card-title" class="text-center">Active : {{messageInfo.cases.active}}
                     </h5>
                     <hr>
