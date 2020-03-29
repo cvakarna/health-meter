@@ -34,60 +34,60 @@
         <div class="col-md-3 col-sm-3 offset-md-8">
             <input #query type="text" class="form-control" placeholder="search..." (keyup)="filterData(query.value)" />
         </div>
-        <div class="col-md-12 col-sm-12">
-            <mat-table [dataSource]="dataSource" matSort>
-                <!-- Name Column -->
-                <ng-container matColumnDef="country">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
-                </ng-container>
-
-                <!-- Total Column -->
-                <ng-container matColumnDef="total">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.cases.total|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <!-- New Column -->
-                <ng-container matColumnDef="new">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> New </mat-header-cell>
-                    <mat-cell *matCellDef="let element" [ngStyle]="{'color': element.cases.new? 'red' : ''}">
-                        {{element.cases.new|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <!-- Deaths Column -->
-                <ng-container matColumnDef="deaths">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.deaths.total|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <!-- New Deaths Column -->
-                <ng-container matColumnDef="new deaths">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> New Deaths </mat-header-cell>
-                    <mat-cell *matCellDef="let element" [ngStyle]="{'color': element.cases.new? 'red' : ''}">
-                        {{element.deaths.new|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <!-- Recovered Column -->
-                <ng-container matColumnDef="recovered">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.cases.recovered|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <!-- Active Column -->
-                <ng-container matColumnDef="active">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Active </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.cases.active|number:'2.'}} </mat-cell>
-                </ng-container>
-
-                <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-            </mat-table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-        </div>
     </div>
-
 </div>
+<div>
+    <mat-table [dataSource]="dataSource" matSort>
+        <!-- Name Column -->
+        <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+        </ng-container>
+
+        <!-- Total Column -->
+        <ng-container matColumnDef="total">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.cases.total|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <!-- New Column -->
+        <ng-container matColumnDef="new">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> New </mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngStyle]="{'color': element.cases.new? 'red' : ''}">
+                {{element.cases.new|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <!-- Deaths Column -->
+        <ng-container matColumnDef="deaths">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.deaths.total|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <!-- New Deaths Column -->
+        <ng-container matColumnDef="new deaths">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> New Deaths </mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngStyle]="{'color': element.cases.new? 'red' : ''}">
+                {{element.deaths.new|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <!-- Recovered Column -->
+        <ng-container matColumnDef="recovered">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.cases.recovered|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <!-- Active Column -->
+        <ng-container matColumnDef="active">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Active </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.cases.active|number:'2.'}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
 
 <hr>
 

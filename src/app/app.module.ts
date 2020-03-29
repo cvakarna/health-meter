@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InfoDisplayComponent } from './info-display/info-display.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DataTableModule } from 'ng-angular8-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
