@@ -14,11 +14,11 @@ import { Observable, Subject } from 'rxjs';
 })
 export class StateWiseComponent implements OnInit, OnDestroy {
 
-  private statesData: IStateData[];
-  private filteredStatesData: IStateData[];
-  private countryData: IStateData;
-  private state_distData: any;
-  private selected_state_dist: any;
+  statesData: IStateData[];
+  filteredStatesData: IStateData[];
+  countryData: IStateData;
+  state_distData: any;
+  selected_state_dist: any;
   displayedColumns = ['state', 'total', 'active', 'deaths', 'recovered', 'new']
 
 
