@@ -1,0 +1,54 @@
+<div class="container" style="padding: 10px;" *ngIf="stateStats">
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h5 class="statename">{{stateStats.state}}</h5>
+        </div>
+    </div>
+    <hr>
+    <div class="row inforow" style="padding: 15px;">
+        <div class="col">
+            <h5>confirmed</h5>
+            <h4 style="color: red;">{{stateStats.confirmed|number}}</h4>
+        </div>
+        <div class="col">
+            <h5>active</h5>
+            <h4 style="color: cornflowerblue;">{{stateStats.active|number}}</h4>
+        </div>
+        <div class="col">
+            <h5>recovered</h5>
+            <h4 style="color: greenyellow;">{{stateStats.recovered|number}}</h4>
+        </div>
+        <div class="col">
+            <h5>deaths</h5>
+            <h4>{{stateStats.deaths}}</h4>
+        </div>
+    </div>
+    <hr>
+    <div style="padding: 15px;">
+        <h4 style="font-size: 22px;font-weight: 300;"> District Info:</h4>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div *ngIf="objectKeys">
+                <table class="table table-borderless table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th>District</th>
+                            <th>Total</th>
+                            <th>New</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let key of objectKeys">
+                            <td>{{key}}</td>
+                            <td>{{statedistdata[key].confirmed}}</td>
+                            <td>{{statedistdata[key].delta.confirmed}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -11,14 +11,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { StateWiseComponent } from './info-display/state-wise/state-wise.component';
+import { DistrictWiseComponent } from './info-display/district-wise/district-wise.component';
+import { CountryWiseComponent } from './info-display/country-wise/country-wise.component';
+import { CountryStatsComponent } from './info-display/country-stats/country-stats.component';
 
-//import { DataTableModule } from 'angular5-data-table';
+import { ChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './state-wise/dash-boards/pie-chart/pie-chart.component';
+import { BarChartComponent } from './state-wise/dash-boards/bar-chart/bar-chart.component';
+import { MessageInfoComponent } from './message-info/message-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    InfoDisplayComponent
+    InfoDisplayComponent,
+    StateWiseComponent,
+    DistrictWiseComponent,
+    CountryWiseComponent,
+    CountryStatsComponent,
+    PieChartComponent,
+    BarChartComponent,
+    MessageInfoComponent
 
   ],
   imports: [
@@ -28,7 +42,8 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ChartsModule
 
   ],
   providers: [],

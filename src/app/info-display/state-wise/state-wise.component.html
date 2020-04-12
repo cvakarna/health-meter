@@ -1,0 +1,52 @@
+<app-country-stats *ngIf="countryData" [countryStats]="countryData"></app-country-stats>
+<div class="container">
+    <div class="row" *ngIf="filteredStatesData" style="padding:30px">
+        <div class="col">
+            <input #query type="text" class="form-control" placeholder="search state..."
+                (keyup)="filterData(query.value)" />
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h6>click on state ,for district wise info</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-6-md col-6-sm">
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-bordered table-dark table-sm">
+                    <thead class="header">
+                        <tr>
+                            <th>State</th>
+                            <th>Total</th>
+                            <th>New</th>
+                            <th>Active</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor: pointer;" *ngFor="let data of filteredStatesData" (click)="onSelect(data)">
+                            <td>{{data.state}}</td>
+                            <td>
+
+                                {{data.confirmed|number}}
+                            </td>
+                            <td style="color: red;">{{data.deltaconfirmed|number}}</td>
+                            <td>{{data.active|number}}</td>
+                            <td>{{data.deaths}}</td>
+                            <td>{{data.recovered}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-12 col-6-md col-sm offset-col-2">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

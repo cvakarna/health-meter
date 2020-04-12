@@ -4,6 +4,7 @@ import { InfoMessage } from '../models/InfoMessage';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DataService } from '../services/data.service';
 
 
 
@@ -29,7 +30,7 @@ export class InfoDisplayComponent implements OnInit, OnDestroy {
   displayedColumns = ['country', 'total', 'new', 'deaths', 'new deaths', 'recovered', 'active']
 
 
-  constructor(private messageService: MessageServiceService, private cdr: ChangeDetectorRef) {
+  constructor(private messageService: MessageServiceService, private cdr: ChangeDetectorRef, private dataService: DataService) {
 
     this.getDataFromServer();
 
